@@ -26,6 +26,20 @@ describe("findMigrator", () => {
     expect(migrator.name).toBe("remix");
   });
 
+  it("should find tanstack migrator", () => {
+    const migrator = findMigrator({
+      name: "tanstack",
+      dependencies: {
+        "@tanstack/start": "^1.95.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "vinxi": "0.5.1"
+      },
+    });
+    expect(migrator).not.toBe(null);
+    expect(migrator.name).toBe("tanstack");
+  });
+
   it("should throw error if migrator could not be found", () => {
     expect(() =>
       findMigrator({
