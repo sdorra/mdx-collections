@@ -1,35 +1,35 @@
 import { PackageJson } from "src/packageJson.js";
 import { describe, expect, it } from "vitest";
-import { migratorSolid } from "./solid.js";
+import { migratorVinxi } from "./vinxi.js";
 
-describe("solid migrator", () => {
+describe("vinxi migrator", () => {
   const packageJson: PackageJson = {
     name: "something",
   };
 
   describe("isResponsible", () => {
-    it("should be responsible for solid", () => {
-      const responsible = migratorSolid.isResponsible({
+    it("should be responsible for vinxi", () => {
+      const responsible = migratorVinxi.isResponsible({
         name: "something",
         dependencies: {
-          "@solidjs/start": "^1.0.9"
+          "vinxi": "0.5.1"
         },
       });
       expect(responsible).toBe(true);
     });
 
-    it("should be responsible for solid in dev dependencies", () => {
-      const responsible = migratorSolid.isResponsible({
+    it("should be responsible for vinxi in dev dependencies", () => {
+      const responsible = migratorVinxi.isResponsible({
         name: "something",
         devDependencies: {
-          "@solidjs/start": "^1.0.9"
+          "vinxi": "0.5.1"
         },
       });
       expect(responsible).toBe(true);
     });
 
     it("should not be responsible for next.js", () => {
-      const responsible = migratorSolid.isResponsible({
+      const responsible = migratorVinxi.isResponsible({
         name: "something",
         dependencies: {
           next: "14.3.1",
@@ -41,14 +41,14 @@ describe("solid migrator", () => {
 
   describe("options", () => {
     it("should parse options", () => {
-      const options = migratorSolid.options.parse({ demoContent: "none" });
+      const options = migratorVinxi.options.parse({ demoContent: "none" });
       expect(options).toEqual({ demoContent: "none" });
     });
   });
 
   describe("migration", () => {
     it("should return tasks without demo content", async () => {
-      const migration = await migratorSolid.createMigration(
+      const migration = await migratorVinxi.createMigration(
         {
           directory: "directory",
           packageJson,
@@ -62,14 +62,14 @@ describe("solid migrator", () => {
       expect(names).toEqual([
         "Install dependencies",
         "Add alias to tsconfig",
-        "Modify vite configuration",
+        "Modify vinxi configuration",
         "Add .content-collections to .gitignore",
         "Create configuration file",
       ]);
     });
 
     it("should return tasks with demo content", async () => {
-      const migration = await migratorSolid.createMigration(
+      const migration = await migratorVinxi.createMigration(
         {
           directory: "directory",
           packageJson,
@@ -83,7 +83,7 @@ describe("solid migrator", () => {
       expect(names).toEqual([
         "Install dependencies",
         "Add alias to tsconfig",
-        "Modify vite configuration",
+        "Modify vinxi configuration",
         "Add .content-collections to .gitignore",
         "Create configuration file",
         "Create demo content",
@@ -91,7 +91,7 @@ describe("solid migrator", () => {
     });
 
     it("should add markdown package with markdown demo content", async () => {
-      const migration = await migratorSolid.createMigration(
+      const migration = await migratorVinxi.createMigration(
         {
           directory: "directory",
           packageJson,
@@ -114,7 +114,7 @@ describe("solid migrator", () => {
     });
 
     it("should not add markdown package without demo content", async () => {
-      const migration = await migratorSolid.createMigration(
+      const migration = await migratorVinxi.createMigration(
         {
           directory: "directory",
           packageJson,
@@ -137,7 +137,7 @@ describe("solid migrator", () => {
     });
 
     it("should add core and vite packages", async () => {
-      const migration = await migratorSolid.createMigration(
+      const migration = await migratorVinxi.createMigration(
         {
           directory: "directory",
           packageJson,
@@ -157,7 +157,7 @@ describe("solid migrator", () => {
       // @ts-expect-error - we know it's there
       const dependencies = addDependenciesTask.devDependencies;
       expect(dependencies).toContain("@content-collections/core");
-      expect(dependencies).toContain("@content-collections/solid-start");
+      expect(dependencies).toContain("@content-collections/vinxi");
     });
   });
 });
