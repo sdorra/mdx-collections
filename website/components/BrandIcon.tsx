@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils";
 import { CircleSlash, TerminalSquare } from "lucide-react";
+import Image from "next/image";
+import tanstack from "./icons/tanstack.png";
+import clsx from "clsx";
 
 type IconProps = {
   className?: string;
@@ -318,6 +321,10 @@ function QwikIcon({ className }: IconProps) {
   );
 }
 
+function TanStackIcon({ className }: IconProps) {
+  return <Image src={tanstack} alt="TanStack" className={clsx("max-w-fit", className)} />;
+}
+
 const icons = {
   next: NextIcon,
   remix: RemixIcon,
@@ -325,6 +332,7 @@ const icons = {
   svelte: SvelteIcon,
   solid: SolidIcon,
   qwik: QwikIcon,
+  tanstack: TanStackIcon,
   cli: TerminalSquare,
   unknown: CircleSlash,
 };
