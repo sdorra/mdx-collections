@@ -4,9 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "start": "vinxi start"
+    "dev": "vinxi dev --port 5182",
+    "test": "playwright test"
   },
   "dependencies": {
     "@content-collections/mdx": "0.2.0",
@@ -21,7 +20,7 @@
   },
   "devDependencies": {
     "@content-collections/core": "0.7.3",
-    "@content-collections/solid-start": "0.1.3",
+    "@content-collections/vinxi": "0.1.0",
     "@types/node": "^22.5.4",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",

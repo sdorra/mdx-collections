@@ -1,7 +1,7 @@
 import contentCollectionsPlugin, { Options } from "@content-collections/vite";
 import { Plugin } from "vite";
 
-export default function remixContentCollectionsPlugin(
+export default function vinxiContentCollectionsPlugin(
   options?: Partial<Omit<Options, "isEnabled">>,
 ): Plugin {
   const plugin = contentCollectionsPlugin({
@@ -14,6 +14,6 @@ export default function remixContentCollectionsPlugin(
 
   return {
     ...plugin,
-    name: "solidstart-content-collections",
+    name: "vinxi-content-collections",
   };
 }
