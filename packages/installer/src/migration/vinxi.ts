@@ -4,11 +4,11 @@ import { createConfiguration } from "./tasks/config.js";
 import { createDemoContent } from "./tasks/demo.js";
 import { addDependencies } from "./tasks/dependencies.js";
 import { addToGitIgnore } from "./tasks/gitignore.js";
-import { modifySolidStartConfig } from "./tasks/solid.js";
+import { modifyVinxiConfig } from "./tasks/vinxi.js";
 import { addAliasToTsConfig } from "./tasks/tsconfig.js";
 
-export const migratorSolid = defineMigrator({
-  name: "qwik",
+export const migratorVinxi = defineMigrator({
+  name: "vinxi",
   options: z.object({
     demoContent: z
       .enum(["none", "markdown"])
@@ -16,12 +16,12 @@ export const migratorSolid = defineMigrator({
       .describe("Type of demo content"),
   }),
   isResponsible: (packageJson) =>
-    Boolean(packageJson.dependencies?.["@solidjs/start"]) ||
-    Boolean(packageJson.devDependencies?.["@solidjs/start"]),
+    Boolean(packageJson.dependencies?.["vinxi"]) ||
+    Boolean(packageJson.devDependencies?.["vinxi"]),
   async createMigration({ directory, packageJson }, { demoContent }) {
     const packages = [
       "@content-collections/core",
-      "@content-collections/solid-start",
+      "@content-collections/vinxi",
     ];
 
     if (demoContent === "markdown") {
@@ -31,7 +31,7 @@ export const migratorSolid = defineMigrator({
     const tasks = [
       addDependencies(directory, packageJson, [], packages),
       addAliasToTsConfig(directory),
-      modifySolidStartConfig(directory),
+      modifyVinxiConfig(directory),
       addToGitIgnore(directory),
       createConfiguration(directory, demoContent),
     ];

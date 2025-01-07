@@ -25,14 +25,15 @@ export default function contentCollectionsPlugin(
   const pluginOptions = { ...defaultOptions, ...options };
 
   let builder: Builder;
-  let isEnabled = false;
+
+  function isEnabled(config: UserConfig) {
+    return options.isEnabled ? options.isEnabled(config) : true;
+  }
 
   return {
     name: "content-collections",
 
     config(config) {
-      isEnabled = options.isEnabled ? options.isEnabled(config) : true;
-
       // even if the plugin is disabled, we need to configure the alias
       // vite is often executed multiple time and the plugin should only
       // run once, but the aliases must be available for all runs
@@ -71,7 +72,7 @@ export default function contentCollectionsPlugin(
     },
 
     async configResolved(config: any) {
-      if (!isEnabled) {
+      if (!isEnabled(config)) {
         return;
       }
       let configPath = resolveConfigPath(config.root, pluginOptions.configPath);

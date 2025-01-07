@@ -10,14 +10,14 @@ import { Task } from "./index.js";
 
 const b = recast.types.builders;
 
-type SolidStartConfig = {
+type VinxiConfig = {
   path: string;
   type: "esm" | "ts";
 };
 
-async function findSolidStartConfig(
+async function findVinxiConfig(
   directory: string,
-): Promise<SolidStartConfig | null> {
+): Promise<VinxiConfig | null> {
   let config = join(directory, "app.config.ts");
   if (existsSync(config)) {
     return { path: config, type: "ts" };
@@ -31,33 +31,33 @@ async function findSolidStartConfig(
   return null;
 }
 
-export function modifySolidStartConfig(directory: string): Task {
+export function modifyVinxiConfig(directory: string): Task {
   return {
-    name: "Modify vite configuration",
+    name: "Modify vinxi configuration",
     run: async () => {
-      const solidConfig = await findSolidStartConfig(directory);
-      if (!solidConfig) {
+      const vinxiConfig = await findVinxiConfig(directory);
+      if (!vinxiConfig) {
         return {
           status: "error",
           message: "Could not find app.config.(js|ts) found",
         };
       }
 
-      const content = await fs.readFile(solidConfig.path, "utf-8");
+      const content = await fs.readFile(vinxiConfig.path, "utf-8");
 
-      if (content.includes("@content-collections/solid-start")) {
+      if (content.includes("@content-collections/vinxi")) {
         return {
           status: "skipped",
-          message: `@content-collections/solid-start already configured`,
+          message: `@content-collections/vinxi already configured`,
         };
       }
 
       const ast = recast.parse(content, {
-        parser: solidConfig.type === "ts" ? tsparser : babelparser,
+        parser: vinxiConfig.type === "ts" ? tsparser : babelparser,
       });
 
       const newImport = recast.parse(
-        'import contentCollections from "@content-collections/solid-start";\n',
+        'import contentCollections from "@content-collections/vinxi";\n',
       ).program.body[0];
 
       // Insert the new import statement at the beginning
@@ -167,11 +167,11 @@ export function modifySolidStartConfig(directory: string): Task {
       }
 
       // Write the modified code back to the file
-      await fs.writeFile(solidConfig.path, recast.print(ast).code);
+      await fs.writeFile(vinxiConfig.path, recast.print(ast).code);
 
       return {
         status: "changed",
-        message: `Added @content-collections/solid-start to ${solidConfig.path}`,
+        message: `Added @content-collections/vinxi to ${vinxiConfig.path}`,
       };
     },
   };

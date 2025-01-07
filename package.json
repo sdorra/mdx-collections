@@ -32,5 +32,10 @@
     "turbo": "^2.2.3"
   },
   "prettier": "@content-collections/prettier-config",
-  "packageManager": "pnpm@8.15.8"
+  "packageManager": "pnpm@8.15.8",
+  "pnpm": {
+    "overrides": {
+      "vite": "5.4.11"
+    }
+  }
 }

@@ -1,13 +1,9 @@
 ---
-title: Solid Start
-description: Use Content Collections with Solid Start
+title: Vinxi
+description: Use Content Collections with Vinxi based frameworks
 ---
 
-The `@content-collections/solid-start` package enables easy integration of Content Collections into your SolidStart app. It includes a SolidStart plugin that automatically creates content collections and incorporates them into the build process.
-
-<Callout type="warn" title='Warning'>
-  **Deprecated:** This adapter is deprecated. Please use the [vinxi](/docs/adapter/vinxi) adapter instead.
-</Callout>
+The `@content-collections/vinxi` package facilitates the seamless integration of Content Collections with frameworks based on [vinxi](https://vinxi.vercel.app/) like [SolidStart](https://start.solidjs.com/) or [TanStack Start](https://tanstack.com/start/latest). It includes a Vite plugin designed specifically for vinxi, preventing multiple executions of Content Collections. The plugin automatically integrates Content Collections into the build process.
 
 ## Installation
 
@@ -19,10 +15,10 @@ Install required packages:
 We have to install the following packages:
 
 - `@content-collections/core`
-- `@content-collections/solid-start`
+- `@content-collections/vinxi`
 
 ```package-install
-npm i @content-collections/core @content-collections/solid-start -D
+npm i @content-collections/core @content-collections/vinxi -D
 ```
 
 </div>
@@ -49,7 +45,7 @@ To enable the content collections plugin we have to add the plugin to the array 
 
 ```ts
 import { defineConfig } from "@solidjs/start/config";
-import contentCollections from "@content-collections/solid-start";
+import contentCollections from "@content-collections/vinxi";
 export default defineConfig({
   vite: {
     plugins: [contentCollections()],

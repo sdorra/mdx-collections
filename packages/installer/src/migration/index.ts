@@ -4,15 +4,17 @@ import { Migrator } from "./migrator.js";
 import { migratorNextJS } from "./next.js";
 import { migratorQwik } from "./qwik.js";
 import { migratorRemix } from "./remix.js";
-import { migratorSolid } from "./solid.js";
+import { migratorVinxi } from "./vinxi.js";
 import { migratorVite } from "./vite.js";
 import { migratorSvelteKit } from "./sveltekit.js";
+import { migratorTanStack } from "./tanstack.js";
 
 const migrators = [
   migratorNextJS,
   migratorRemix,
   migratorQwik,
-  migratorSolid,
+  migratorTanStack,
+  migratorVinxi,
   migratorSvelteKit,
   migratorVite,
 ];

@@ -1,8 +1,8 @@
 ---
-title: SolidStart
-description: Use Content Collections with SolidStart
-linkText: Quickstart SolidStart
-icon: solid
+title: TanStack Start
+description: Use Content Collections with TanStack Start
+linkText: Quickstart TanStack Start
+icon: tanstack
 category: frameworks
 ---
 
@@ -30,7 +30,7 @@ Adjust your `tsconfig.json`:
   "compilerOptions": {
     // ...
     "paths": {
-      "~/*": ["./src/*"],
+      "~/*": ["./app/*"],
       "content-collections": ["./.content-collections/generated"]
     }
   }
@@ -46,11 +46,18 @@ This is necessary because we will generate the files in the `.content-collection
 Modify your `app.config.ts`:
 
 ```ts
-import { defineConfig } from "@solidjs/start/config";
 import contentCollections from "@content-collections/vinxi";
+import { defineConfig } from "@tanstack/start/config";
+import tsConfigPaths from "vite-tsconfig-paths";
+
 export default defineConfig({
   vite: {
-    plugins: [contentCollections()],
+    plugins: [
+      contentCollections(),
+      tsConfigPaths({
+        projects: ["./tsconfig.json"],
+      }),
+    ],
   },
 });
 ```
@@ -77,7 +84,7 @@ import { defineCollection, defineConfig } from "@content-collections/core";
 
 const posts = defineCollection({
   name: "posts",
-  directory: "src/posts",
+  directory: "content/posts",
   include: "**/*.md",
   schema: (z) => ({
     title: z.string(),
@@ -90,7 +97,7 @@ export default defineConfig({
 });
 ```
 
-This file defines a collection named `posts` in the `src/posts` folder.
+This file defines a collection named `posts` in the `content/posts` folder.
 The collection will include all markdown files (`**/*.md`) and the schema will validate the `title` and `summary` fields.
 
 For more information about the configuration have a look at the [documentation](/docs/configuration).
@@ -98,7 +105,7 @@ For more information about the configuration have a look at the [documentation](
 </div>
 <div className="step">
 
-Create your content files (e.g.: `src/posts/hello-world.md`):
+Create your content files (e.g.: `content/posts/hello-world.md`):
 
 ```md
 ---
