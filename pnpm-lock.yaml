@@ -803,8 +803,8 @@ importers:
         specifier: 0.2.3
         version: link:../../packages/vite
       '@mdx-js/rollup':
-        specifier: ^3.0.1
-        version: 3.0.1(rollup@4.27.4)
+        specifier: ^3.1.0
+        version: 3.1.0(rollup@4.27.4)
       '@remix-run/dev':
         specifier: ^2.13.1
         version: 2.13.1(@remix-run/react@2.13.1)(@remix-run/serve@2.13.1)(@types/node@20.14.9)(typescript@5.5.4)(vite@5.4.6)
@@ -3927,7 +3927,7 @@ packages:
       '@mdx-js/mdx': 3.0.1
       '@types/unist': 3.0.2
       esbuild: 0.21.4
-      vfile: 6.0.1
+      vfile: 6.0.2
       vfile-message: 4.0.2
     transitivePeerDependencies:
       - supports-color
@@ -4011,8 +4011,8 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@mdx-js/rollup@3.0.1(rollup@4.27.4):
-    resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
+  /@mdx-js/rollup@3.1.0(rollup@4.27.4):
+    resolution: {integrity: sha512-q4xOtUXpCzeouE8GaJ8StT4rDxm/U5j6lkMHL2srb2Q3Y7cobE0aXyPzXVVlbeIMBi+5R5MpbiaVE5/vJUdnHg==}
     peerDependencies:
       rollup: '>=2'
     dependencies:
@@ -4020,7 +4020,7 @@ packages:
       '@rollup/pluginutils': 5.1.0(rollup@4.27.4)
       rollup: 4.27.4
       source-map: 0.7.4
-      vfile: 6.0.1
+      vfile: 6.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6014,7 +6014,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 4.27.4
@@ -11414,7 +11414,7 @@ packages:
       parse5: 7.1.2
       unist-util-position: 5.0.0
       unist-util-visit: 5.0.0
-      vfile: 6.0.1
+      vfile: 6.0.2
       web-namespaces: 2.0.1
       zwitch: 2.0.4
     dev: false
@@ -13009,7 +13009,7 @@ packages:
       trim-lines: 3.0.1
       unist-util-position: 5.0.0
       unist-util-visit: 5.0.0
-      vfile: 6.0.1
+      vfile: 6.0.2
 
   /mdast-util-to-hast@13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
