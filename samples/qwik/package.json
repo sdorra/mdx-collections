@@ -21,7 +21,7 @@
     "@content-collections/vite": "0.2.4",
     "@types/eslint": "^8.56.7",
     "@types/node": "^20.14.9",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.11.0",
