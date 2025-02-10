@@ -10,7 +10,7 @@
   "dependencies": {
     "@content-collections/core": "0.8.0",
     "@content-collections/next": "0.2.4",
-    "next": "14.2.15",
+    "next": "15.1.6",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -19,7 +19,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.2.15",
+    "eslint-config-next": "15.1.6",
     "typescript": "^5"
   }
 }
