@@ -10,9 +10,9 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "@remix-run/node": "^2.15.2",
-    "@remix-run/react": "^2.15.2",
-    "@remix-run/serve": "^2.15.2",
+    "@remix-run/node": "^2.15.3",
+    "@remix-run/react": "^2.15.3",
+    "@remix-run/serve": "^2.15.3",
     "isbot": "^5.1.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -21,7 +21,7 @@
     "@content-collections/core": "0.8.0",
     "@content-collections/vite": "0.2.4",
     "@mdx-js/rollup": "^3.0.1",
-    "@remix-run/dev": "^2.15.2",
+    "@remix-run/dev": "^2.15.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
