@@ -22,7 +22,7 @@
     "@types/eslint": "^8.56.7",
     "@types/node": "^20.14.9",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
+    "@typescript-eslint/parser": "^8.23.0",
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.11.0",
     "typescript": "5.5.4",
